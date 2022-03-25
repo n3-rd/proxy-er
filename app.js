@@ -4,6 +4,9 @@ const fetch = require('node-fetch');
 const app = express();
 
 app.use(cors())
+app.use(express.json());
+app.use(express.static("public"));
+
 app.get('/', (req, res)=>{
     res.send('hello')
     console.log('app running')
@@ -22,4 +25,4 @@ app.get('/useproxy', (req, res)=>{
   
 })
  
-app.listen(8000)
+app.listen(process.env.PORT || 8000);
